@@ -15,6 +15,11 @@
     height: 125px;
 }
 
+.field-cell:active {
+    transform: scale(0.95);
+    cursor: url('../img/hammerPow.png'), auto;
+}
+
 body {
     background-color: #2a14cc;
 }

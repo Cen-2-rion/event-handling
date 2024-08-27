@@ -1,28 +1,36 @@
-const killedGoblins = document.querySelector(".killed");
-const missedGoblins = document.querySelector(".missed");
+const killed = document.querySelector(".killed");
+const missed = document.querySelector(".missed");
 
 export default class Game {
   constructor(cell) {
     this.cell = cell;
   }
 
-  hitGoblin() {
+  killedGoblins() {
+    // если попали по гоблину, то удаляем его и засчитываем попадание
     if (this.cell.classList.contains("goblin")) {
-      this.cell.classList.remove("goblin");
-      killedGoblins.textContent = Number(killedGoblins.textContent) + 1;
+      this.cell.remove("goblin");
+      killed.textContent++;
 
-      if (killedGoblins.textContent == 10) {
+      // если убийств 10, то выводим "Вы победили"
+      if (killed.textContent == 10) {
         alert("Вы победили!");
-        killedGoblins.textContent = 0;
-        missedGoblins.textContent = 0;
+        killed.textContent = 0;
+        missed.textContent = 0;
       }
-    } else {
-      missedGoblins.textContent = Number(missedGoblins.textContent) + 1;
+    }
+  }
 
-      if (missedGoblins.textContent == 5) {
+  missedGoblins() {
+    // если промахнулись по гоблину, то засчитываем промах
+    if (this.cell.classList.contains("field-cell")) {
+      missed.textContent++;
+
+      // если промахов 5, то выводим "Вы проиграли"
+      if (missed.textContent == 5) {
         alert("Вы проиграли!");
-        killedGoblins.textContent = 0;
-        missedGoblins.textContent = 0;
+        killed.textContent = 0;
+        missed.textContent = 0;
       }
     }
   }

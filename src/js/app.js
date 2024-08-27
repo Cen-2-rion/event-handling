@@ -31,12 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // перемещаем персонажа по полю каждую секунду
   setInterval(moveGoblin, 1000);
-});
 
-// добавляем обработчик клика по ячейке
-document.addEventListener("click", (event) => {
-  if (event.target.classList.contains("field-cell")) {
+  // добавляем обработчик клика по ячейкам
+  document.addEventListener("click", (event) => {
     const game = new Game(event.target);
-    game.hitGoblin();
-  }
+
+    if (event.target.classList.contains("goblin")) {
+      game.killedGoblins();
+    } else {
+      game.missedGoblins();
+    }
+  });
 });
