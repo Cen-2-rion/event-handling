@@ -1,0 +1,32 @@
+.field {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #009605;
+    cursor: url('../img/hammer.png'), auto;
+}
+
+.field-cell {
+    border: 1px solid #000;
+    height: 125px;
+}
+
+.field-cell:active {
+    transform: scale(0.95);
+    cursor: url('../img/hammerPow.png'), auto;
+}
+
+body {
+    background-color: #2a14cc;
+}
+
+.goblin-status {
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+    padding: 20px;
+}
